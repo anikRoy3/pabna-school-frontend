@@ -10,12 +10,12 @@
         <div class="flex items-center justify-between gap-2 p-2 ">
             <a href="<?php echo 'http://localhost/pabna-school/';?>">
                 <div>
-                    <img class="w-[3.4em]" src="src/assests/nav_images/logo.png" alt="logo">
+                    <img  class="w-[3.4em] nav_school_logo" src="src/assests/nav_images/logo.png" alt="logo">
                 </div>
             </a>
             <div>
-                <h3 class="text-[1.2em]">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
-                <small>EIIN : 105826 | কলেজ কোড: 7925 | স্কুল কোড: 7801</small>
+                <h3 class="text-[1.2em] school_name">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
+                <small>EIIN :  <span  class="EIIN_no">1058264444</span>  | কলেজ কোড: <span class="college_code">7925</span>  | স্কুল কোড: <span class="school_code">7801</span></small>
             </div>
         </div>
         <div class="flex items-center justify-between gap-5 px-2">

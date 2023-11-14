@@ -13,8 +13,8 @@
                 </svg>
             </label>
             <div>
-                <h3 class="text-[1.2em]">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
-                <small>EIIN : 105826 | কলেজ কোড: 7925 | স্কুল কোড: 7801</small>
+                <h3 class="text-[1.2em] school_name">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
+                <small>EIIN :  <span  class="EIIN_no">1058264444</span>  | কলেজ কোড: <span class="college_code">7925</span>  | স্কুল কোড: <span class="school_code">7801</span></small>
             </div>
         </div>
         <div class="drawer">

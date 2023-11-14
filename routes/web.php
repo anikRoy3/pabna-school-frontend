@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.homepage.index');
 });
+
+Route::get('/aboutUs', function () {
+    return view('pages.aboutUs.index');
+});
+
+Route::get('/contact', function () {
+    return view('pages.contactUs.index');
+});
+
+Route::get('/teachers', function () {
+    return view('pages.teachersAndStaff.index');
+});
+
+Route::get('/academics', function () {
+    return view('pages.academics.index');
+});

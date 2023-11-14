@@ -7,7 +7,7 @@
                         <path d="M27 0H-1.90735e-06L13.365 12.625L27 25V0Z" fill="#0C1167" />
                     </svg>
                     <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" class="w-[7em] h-[6em] rounded-md P-[1.688em] flex justify-center items-center bg-white">
-                        <img class="w-[5em]" src="src/assests/nav_images/logo.png" alt="logo">
+                        <img class="w-[5em] nav_school_logo" src="src/assests/nav_images/logo.png" alt="logo">
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 27 25" fill="none">
                         <path d="M0 0H27L13.635 12.625L0 25V0Z" fill="#0C1167" />
