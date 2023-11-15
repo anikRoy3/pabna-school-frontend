@@ -1,7 +1,7 @@
     <div class="container mx-auto sticky top-0 z-50 " id="nav_one">
         <section>
             <header class="flex gap-5 bg-white">
-                <a href="<?php echo 'http://localhost/pabna-school/';?>">
+                <a href="{{url('/')}}">
                     <section class="w-[10.125em] z-40">
                         <div class="flex ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 27 25" fill="none">
@@ -96,7 +96,7 @@
             <nav class="w-full relative top-[-1.3rem] transition duration-300 bg-white opacity-90 ease-in-out ">
                 <div class="navbar-end flex w-[70.670em] ">
                     <ul class="menu menu-horizontal px-1 flex space-x-4 w-auto">
-                        <li><small href="" class="text-[1.2em]">হোম</small></li>
+                        <li><a href="{{url('/')}}" class="text-[1.2em]">হোম</a></li>
                         <li class="dropdown">
                             <details>
                                 <summary tabindex="1" id="menu1" class="text-[1.2em]">
@@ -122,6 +122,8 @@
                                 <ul tabIndex="0" class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><a href="{{url('academics')}}">শিক্ষা বর্ষপঞ্জি</a></li>
                                     <li><a href="<?php echo 'http://localhost/pabna-school/rules.php'; ?>">নিয়মকানুন</a></li>
+                                    <li><a href="{{url('examAndResult')}}">পরীক্ষা এবং ফলাফল</a></li>
+                                 
                                 </ul>
                             </details>
                         </li>
@@ -133,7 +135,11 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex="0" class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/examAndResult.php'; ?>">পরীক্ষা এবং ফলাফল</a></li>
+                                    <li><a href="{{url('clubAndSociety')}}">ক্লাব এবং সোসাইটি</a></li>
+                                    <li><a href="{{url('gamesAndSports')}}">গেমস এবং স্পোর্টস</a></li>
+                                    <li><a href="{{url('library')}}"> লাইব্রেরি</a></li>
+                                    <li><a href="{{url('multimedia')}}">মাল্টিমিডিয়া ক্লাস রুম</a></li>
+                                 
                                 </ul>
                             </details>
                         </li>
@@ -145,7 +151,7 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex="0" class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/admission.php'; ?>">ভর্তি সংক্রান্ত</a></li>
+                                    <li><a href="{{url('admission')}}">ভর্তি সংক্রান্ত</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -157,8 +163,7 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex="0" class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/clubAndSociety.php'; ?>">ক্লাব এবং সমাজ</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/program.php'; ?>">অনুষ্ঠান ও কর্মসূচি</a></li>
+                                    <li><a href="{{url('program')}}">অনুষ্ঠান ও কর্মসূচি</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -171,6 +176,8 @@
 
 
     @section('js')
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const nav_one = document.getElementById("nav_one");

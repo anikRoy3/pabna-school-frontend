@@ -1,8 +1,7 @@
 @include('components.footer.index')
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-<script>
+
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const nav_one = document.getElementById("nav_one");
         const nav_two = document.getElementById("nav_two");
@@ -62,7 +61,6 @@
 </script>
 
 
-{{-- Navbar js --}}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
@@ -94,7 +92,7 @@
             }
         });
     })
-</script>
+</script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 {{-- 
@@ -112,6 +110,7 @@
         swiperEl.initialize();
     })
 </script> --}}
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const swiperEl2 = document.getElementById('teachers_slider')
@@ -419,14 +418,15 @@
 </script>
 
 
+{{-- Education section --}}
 <script>
-    const allInfos = []
+    const academics = []
     const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
 
-    function pdfRender(id) {
-        const pdfField = $('#pdfField');
-        const info = allInfos.find(info => info.id == id);
-        pdfField.html(`
+    function academicPdfRender(id) {
+        const academicPdfField = $('#academicPdfField');
+        const info = academics.find(info => info.id == id);
+        academicPdfField.html(`
         <iframe  src="${localServerBaseUrl}/storage/${info.pdf}" style="width: 100%;" height="500" class="pointer">
                 </iframe>
         `)
@@ -434,18 +434,17 @@
     }
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-        const titleField = $('#titleField');
+        const academicTitleField = $('#academicTitleField');
         $.ajax({
             url: localServerBaseUrl + '/api/academic',
             type: 'GET',
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 const infos = response.data;
-                allInfos.push(...infos);
+                academics.push(...infos);
                 let i_html = '';
                 if (infos.length > 0) {
-                    $('#pdfField').html(`
+                    $('#academicPdfField').html(`
         <iframe  src="${localServerBaseUrl}/storage/${infos[0].pdf}" style="width: 100%;" height="500" class="pointer">
                 </iframe>
         `)
@@ -455,8 +454,7 @@
                     id
                 }) => {
                     i_html += `
-                <p onClick="pdfRender('${id}')" class="p-5 flex items-center my-2 text-[1.3em]" style="background: var(--white, #FFF);   
-                box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);">
+                <p onClick="academicPdfRender('${id}')" class="p-5 pdfField flex items-center my-2 text-[1.3em]" style="">
                     <span>
                         <svg class="me-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="#0C1167" />
@@ -464,10 +462,9 @@
                     </span>
                     <small>${title}</small>
                 </p>
-                
                 `
                 })
-                titleField.html(i_html);
+                academicTitleField.html(i_html);
 
 
             },
@@ -482,6 +479,367 @@
     })
 </script>
 
+{{-- Admssion section --}}
+<script>
+    const admissions = []
+    // const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
+
+    function admissionPdfRender(id) {
+        const admissionPdfField = $('#admissionPdfField');
+        const info = admissions.find(info => info.id == id);
+        admissionPdfField.html(`
+        <iframe  src="${localServerBaseUrl}/storage/${info.pdf}" style="width: 100%;" height="500" class="pointer">
+                </iframe>
+        `)
+
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const admissionTitleField = $('#admissionTitleField');
+        $.ajax({
+            url: localServerBaseUrl + '/api/admission',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                const infos = response.data;
+                admissions.push(...infos);
+                let i_html = '';
+                if (infos.length > 0) {
+                    $('#admissionPdfField').html(`
+        <iframe  src="${localServerBaseUrl}/storage/${infos[0].pdf}" style="width: 100%;" height="500" class="pointer">
+                </iframe>
+        `)
+                }
+                infos.forEach(({
+                    title,
+                    id
+                }) => {
+                    i_html += `
+                <p onClick="admissionPdfRender('${id}')" class="p-5 pdfField flex items-center my-2 text-[1.3em]" style="">
+                    <span>
+                        <svg class="me-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="#0C1167" />
+                        </svg>
+                    </span>
+                    <small>${title}</small>
+                </p>
+                `
+                })
+                admissionTitleField.html(i_html);
+
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
+
+
+{{-- Exam And Result section --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
+        const exam_name = $('#exam_name');
+        const table_body = $('#table_body')
+        const exam_names = []
+        $.ajax({
+            url: localServerBaseUrl + '/api/coCurricular',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                const data = response.data;
+                exam_name.html('')
+                let table_body_element = ''
+                table_body.html('')
+                let exam_name_element = ''
+                data.forEach(e => {
+                    exam_names.push(e?.exam_name);
+                    table_body_element += `
+                    
+                    <tr class="h-20 my-2">
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.exam_name.toUpperCase()}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.exam_year}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.total_candidates}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.attended_candidates}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.a_plus_holder}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e.total_pass}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">${e?.pass_rate}%</td>
+                            </tr>
+                    
+                    `;
+                })
+                exam_names.forEach((name, i) => {
+                    exam_name_element += `      
+                <div class="flex items-center justify-center p-4 my-2 w-full ${i===0 ? 'text-white bg-[#0C1167]' :''}" style="border: 1px solid var(--blue-1, #0C1167);">
+                        <span class="me-2">${name.toUpperCase()}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                            fill="none">
+                            <path
+                                d="M17.8817 13.2955L8.77183 22.4053C8.33247 22.8447 7.62016 22.8447 7.18084 22.4053L6.11833 21.3428C5.67972 20.9042 5.67887 20.1933 6.11645 19.7537L13.3362 12.5L6.11645 5.24628C5.67887 4.80664 5.67972 4.09578 6.11833 3.65717L7.18084 2.59466C7.6202 2.1553 8.33251 2.1553 8.77183 2.59466L17.8817 11.7045C18.321 12.1438 18.321 12.8561 17.8817 13.2955Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                
+                `;
+                })
+                exam_name.html(exam_name_element)
+                table_body.html(table_body_element);
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+    })
+</script>
+
+
+
+{{-- School Activites for Club --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // for club page
+        const club_page_title = $('#club_page_title');
+        const club_page_title_two = $('#club_page_title_two')
+        const club_page_description_one = $('#club_page_description_one');
+        const club_page_description_two = $('#club_page_description_two');
+        const club_page_image = $('#club_page_image');
+        const club_page_images = $('#club_page_images');
+
+
+        $.ajax({
+            url: localServerBaseUrl + '/api/schoolActivities',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                const data = response.data;
+                data.forEach(d => {
+                    const parsedImages = JSON.parse(d.images);
+                    if (d.category == 'ক্লাব এবং সোসাইটি') {
+                        club_page_title.html(d.category);
+                        club_page_description_one.html(d.long_description.slice(0, 580));
+                        club_page_description_two.html(d.long_description.slice(880));
+                        club_page_title_two.html(d.category);
+                        club_page_image.html(
+                            `<img style="width: 100% ;" src="${localServerBaseUrl}/storage/${parsedImages[0]}" alt="">`
+                        );
+                        let imageElement = ''
+                        parsedImages.forEach(image => {
+                            imageElement += `
+                            <img src="${localServerBaseUrl}/storage/${image}" alt="">
+                            `;
+                        })
+                        club_page_images.html(imageElement);
+                    }
+                })
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
+
+
+{{-- School Activites for libraries --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // for libraries page
+        const libraries_page_title = $('#libraries_page_title');
+        const libraries_page_title_two = $('#libraries_page_title_two')
+        const libraries_page_description_one = $('#libraries_page_description_one');
+        const libraries_page_description_two = $('#libraries_page_description_two');
+        const libraries_page_image = $('#libraries_page_image');
+        const libraries_page_images = $('#libraries_page_images');
+
+
+        $.ajax({
+            url: localServerBaseUrl + '/api/schoolActivities',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                const data = response.data;
+                data.forEach(d => {
+                    const parsedImages = JSON.parse(d.images);
+                    if (d.category == 'লাইব্রেরি') {
+                        libraries_page_title.html(d.category);
+                        libraries_page_description_one.html(d.long_description.slice(0,
+                            580));
+                        libraries_page_description_two.html(d.long_description.slice(880));
+                        libraries_page_title_two.html(d.category);
+                        libraries_page_image.html(
+                            `<img style="width: 100% ;" src="${localServerBaseUrl}/storage/${parsedImages[0]}" alt="">`
+                        );
+                        let imageElement = ''
+                        parsedImages.forEach(image => {
+                            imageElement += `
+                            <img src="${localServerBaseUrl}/storage/${image}" alt="">
+                            `;
+                        })
+                        libraries_page_images.html(imageElement);
+                    }
+                })
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
+
+{{-- School Activites for games --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // for games page
+        const games_page_title = $('#games_page_title');
+        const games_page_title_two = $('#games_page_title_two')
+        const games_page_description_one = $('#games_page_description_one');
+        const games_page_description_two = $('#games_page_description_two');
+        const games_page_image = $('#games_page_image');
+        const games_page_images = $('#games_page_images');
+
+
+        $.ajax({
+            url: localServerBaseUrl + '/api/schoolActivities',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                const data = response.data;
+                data.forEach(d => {
+                    const parsedImages = JSON.parse(d.images);
+                    if (d.category == 'গেমস এবং স্পোর্টস') {
+                        games_page_title.html(d.category);
+                        games_page_description_one.html(d.long_description.slice(0, 580));
+                        games_page_description_two.html(d.long_description.slice(880));
+                        games_page_title_two.html(d.category);
+                        games_page_image.html(
+                            `<img style="width: 100% ;" src="${localServerBaseUrl}/storage/${parsedImages[0]}" alt="">`
+                        );
+                        let imageElement = ''
+                        parsedImages.forEach(image => {
+                            imageElement += `
+                            <img src="${localServerBaseUrl}/storage/${image}" alt="">
+                            `;
+                        })
+                        games_page_images.html(imageElement);
+                    }
+                })
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
+
+{{-- School Activites for multimedia --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // for multimedia page
+        const multimedia_page_title = $('#multimedia_page_title');
+        const multimedia_page_title_two = $('#multimedia_page_title_two')
+        const multimedia_page_description_one = $('#multimedia_page_description_one');
+        const multimedia_page_description_two = $('#multimedia_page_description_two');
+        const multimedia_page_image = $('#multimedia_page_image');
+        const multimedia_page_images = $('#multimedia_page_images');
+
+
+        $.ajax({
+            url: localServerBaseUrl + '/api/schoolActivities',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                const data = response.data;
+                data.forEach(d => {
+                    const parsedImages = JSON.parse(d.images);
+                    if (d.category == 'মাল্টিমিডিয়া ক্লাস রুম') {
+                        multimedia_page_title.html(d.category);
+                        multimedia_page_description_one.html(d.long_description.slice(0,
+                            580));
+                        multimedia_page_description_two.html(d.long_description.slice(880));
+                        multimedia_page_title_two.html(d.category);
+                        multimedia_page_image.html(
+                            `<img style="width: 100% ;" src="${localServerBaseUrl}/storage/${parsedImages[0]}" alt="">`
+                        );
+                        let imageElement = ''
+                        parsedImages.forEach(image => {
+                            imageElement += `
+                            <img src="${localServerBaseUrl}/storage/${image}" alt="">
+                            `;
+                        })
+                        multimedia_page_images.html(imageElement);
+                    }
+                })
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        $.ajax({
+            url: localServerBaseUrl + '/api/ourAchievements',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                const all_images = [];
+                const program_images = $('#program_images')
+                const data = response.data;
+                let imageHtml = '';
+                data.forEach(d => {
+                    const parsedImages = JSON.parse(d.images);
+                    all_images.push(...parsedImages);
+                })
+                all_images.forEach(image => {
+                    imageHtml += `                    
+                    <img src="${localServerBaseUrl}/storage/${image}" alt="">
+                    `;
+                })
+                program_images.html(imageHtml); 
+                console.log(all_images);
+
+            },
+            error: function(error) {
+                // Handle errors
+                console.error('Error:', error);
+                // $('#result').text('Error occurred. Please check the console for details.');
+            }
+        });
+
+
+    })
+</script>
 </body>
 
 </html>

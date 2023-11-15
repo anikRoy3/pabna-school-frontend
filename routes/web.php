@@ -32,3 +32,27 @@ Route::get('/teachers', function () {
 Route::get('/academics', function () {
     return view('pages.academics.index');
 });
+
+Route::get('/admission', function () {
+    return view('pages.admission.index');
+});
+
+Route::get('/examAndResult', function(){
+    return view('pages.examAndResult.index');
+});
+
+Route::get('/clubAndSociety', function(){
+    return view('pages.clubAndSociety.index');
+});
+Route::get('/gamesAndSports', function(){
+    return view('pages.gamesAndSports.index');
+});
+Route::get('/library', function(){
+    return view('pages.libraries.index');
+});
+Route::get('/multimedia', function(){
+    return view('pages.multimedia.index');
+});
+Route::get('/program', function(){
+    return view('pages.program.index');
+});

@@ -73,6 +73,18 @@
         #menu5::after {
             display: none;
         }
+
+        .pdfField {
+            background: #ffffff;
+            box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+            transition:  0.5s;
+        }
+
+        .pdfField:hover {
+            border: 1px solid  #0C1167;
+            background:  #FFF;
+            box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+        }
     </style>
 </head>
 
