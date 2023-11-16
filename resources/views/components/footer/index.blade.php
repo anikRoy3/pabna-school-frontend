@@ -2,7 +2,7 @@
     <div class="py-5 container mx-auto flex flex-col md:flex-row justify-around items-center">
         <section class="flex gap-5 flex-col md:flex-row md:gap-3 text-center md:text-left mb-4 md:mb-0">
             <div class='p-3 lg:bg-white rounded-lg flex items-center justify-center'>
-                <img src="src/assests/nav_images/logo.png" class="w-[6.381em] h-[6.188em] nav_school_logo" alt="Pabna logo">
+                <img src="{{env('LOCAL_SERVER_BASE_URL')}}/storage/{{$settings['school_logo']}}" class="w-[6.381em] h-[6.188em] nav_school_logo" alt="Pabna logo">
             </div>
             <div class="flex-1">
                 <h3 class="text-[1em] md:text-[1.5em] mb-2">

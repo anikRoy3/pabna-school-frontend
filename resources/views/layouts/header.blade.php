@@ -10,8 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Link owl carousel CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
 
     <!-- Carousel custom css -->
     <link rel="stylesheet" href="utils/banner_carousel/banner_carousel.css">

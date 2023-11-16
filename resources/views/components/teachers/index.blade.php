@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="flex w-full flex-col justify-center items-center lg:flex-row flex-wrap gap-4 px-3 ml-4" style="flex: 80%; width:80%;">
-           {{-- @include('utils.teachers_carousel.teachers_carousel') --}}
+           @include('utils.teachers_carousel.teachers_carousel')
         </div>
     </div>
 </section>

@@ -1,4 +1,5 @@
-<header id="nav_two" class="hidden container mx-auto sticky top-0 z-40 bg-white h-[3.875em]" style="transition: opacity 2s ease;">
+
+<header id="nav_two" class=" container mx-auto sticky top-0 z-40 bg-white h-[3.875em]" style="display: none; transition: opacity 2s ease;">
     <nav class="flex">
         <a href="<?php echo 'http://localhost/pabna-school/'?>">
             <section class="flex items-center">

@@ -23,35 +23,3 @@
     </div>
 </div>
 
-@section('js')
-    {{-- sliders section  --}}
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-        const banner_slider = $('#banner_slider');
-        $.ajax({
-            url: localServerBaseUrl + '/api/sliders',
-            type: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                const url = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-                const sliders = response.data;
-                let htmlContent = '';
-                sliders.forEach(e => {
-                    htmlContent += `
-                        <swiper-slide>
-                            <img style="height: 450px; width: 100%" src="${e.image_url}" alt="">
-                        </swiper-slide>
-        `;
-                });
-                banner_slider.html(htmlContent);
-            },
-            error: function(error) {
-                // Handle errors
-                console.error('Error:', error);
-                // $('#result').text('Error occurred. Please check the console for details.');
-            }
-        });
-    })
-</script> --}}
-@endsection

@@ -1,7 +1,8 @@
 @include('components.footer.index')
 
-
-{{-- <script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         const nav_one = document.getElementById("nav_one");
         const nav_two = document.getElementById("nav_two");
@@ -61,7 +62,56 @@
 </script>
 
 
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+
+
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log($('.banner'))
+        $('.banner').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    })
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        }) /*  */
+    })
+</script>
+
+
+
+
+{{-- Navbar js --}}
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
         $.ajax({
@@ -94,59 +144,14 @@
     })
 </script> --}}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-{{-- 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiperEl = document.getElementById('banner_sliderssdfasf')
-        Object.assign(swiperEl, {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                clickable: true,
-            },
-
-        });
-        swiperEl.initialize();
-    })
-</script> --}}
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiperEl2 = document.getElementById('teachers_slider')
-        console.log(swiperEl2)
-        Object.assign(swiperEl2, {
-            slidesPerView: 3,
-            spaceBetween: 10,
-            pagination: {
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 20,
-                },
-            },
-
-        });
-        swiperE2.initialize();
-    })
-</script>
-
 
 {{-- sliders section  --}}
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-        const banner_slider = $('#banner_slider');
+        const banner_slider = $('.banner');
+        const banner_items = $('.item')
+        console.log(banner_items)
         $.ajax({
             url: localServerBaseUrl + '/api/sliders',
             type: 'GET',
@@ -155,14 +160,19 @@
                 const url = "{{ env('LOCAL_SERVER_BASE_URL') }}";
                 const sliders = response.data;
                 let htmlContent = '';
-                sliders.forEach(e => {
+
+                /* sliders.forEach(e => {
                     htmlContent += `
-                        <swiper-slide>
-                            <img style="height: 450px; width: 100%" src="${e.image_url}" alt="">
-                        </swiper-slide>
+                    <div class="item banner_item">
+        <img style="height: 450px; width: 100%"
+            src="${e.image_url}"
+            alt="">
+
+    </div>
+                   
         `;
-                });
-                banner_slider.html(htmlContent);
+                }); */
+                // banner_slider.html(htmlContent);
             },
             error: function(error) {
                 // Handle errors
@@ -171,10 +181,10 @@
             }
         });
     })
-</script>
+</script> --}}
 
 {{-- notice section script --}}
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
         $.ajax({
@@ -248,10 +258,10 @@
             }
         });
     })
-</script>
+</script> --}}
 
 {{-- Achievement section script --}}
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
         const ourAchievementContainer = $('#ourAchievementContainer')
@@ -282,11 +292,11 @@
         });
     })
 </script>
-
+ --}}
 
 
 {{-- program section --}}
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
         const program_images_container = $('#program_images_container')
@@ -316,11 +326,11 @@
             }
         });
     })
-</script>
+</script> --}}
 
 
 {{-- Teachers section --}}
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
         const teachers_day_container = $('#teachers_day_container');
@@ -416,7 +426,7 @@
         });
     })
 </script>
-
+ --}}
 
 {{-- Education section --}}
 <script>
@@ -826,7 +836,7 @@
                     <img src="${localServerBaseUrl}/storage/${image}" alt="">
                     `;
                 })
-                program_images.html(imageHtml); 
+                program_images.html(imageHtml);
                 console.log(all_images);
 
             },

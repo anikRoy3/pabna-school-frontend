@@ -1,4 +1,6 @@
-    <div class="container mx-auto sticky top-0 z-50 " id="nav_one">
+{{-- @dd($settings) --}}
+
+<div class="container mx-auto sticky top-0 z-50 " id="nav_one">
         <section>
             <header class="flex gap-5 bg-white">
                 <a href="{{url('/')}}">
@@ -8,7 +10,7 @@
                                 <path d="M27 0H-1.90735e-06L13.365 12.625L27 25V0Z" fill="#0C1167" />
                             </svg>
                             <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" class="w-[10.125em] h-[9.563em] rounded-mdP-[1.688em] flex justify-center items-center">
-                                <img class="nav_school_logo" style="width: 7em;" src="src/assests/nav_images/logo.png" alt="logo">
+                                <img class="nav_schol_logo" style="width: 7em;" src="{{env('LOCAL_SERVER_BASE_URL')}}/storage/{{$settings['school_logo']}}" alt="logo">
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 27 25" fill="none">
                                 <path d="M0 0H27L13.635 12.625L0 25V0Z" fill="#0C1167" />
@@ -19,8 +21,8 @@
                 <section class="flex-1 z-40">
                     <div class="flex justify-between w-full">
                         <div class="mt-12">
-                            <h3 class="text-[1.5em] school_name" id="school_name">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
-                            <p>EIIN : <span  class="EIIN_no">1058264444</span> | কলেজ কোড: <span class="college_code">7925</span> | স্কুল কোড: <span class="school_code">7801</span></p>
+                            <h3 class="text-[1.5em]"">{{$settings['school_name']}}</h3>
+                            <p>EIIN : <span  class="EIIN_no">{{$settings['EIIN_no']}}</span> | কলেজ কোড: <span class="college_code">{{$settings['college_code']}}</span> | স্কুল কোড: <span class="school_code">{{$settings['school_code']}}</span></p>
                         </div>
                         <div class="flex flex-col justify-end gap-2 mt-2">
                             <p class="flex justify-end">
@@ -31,7 +33,7 @@
                                     </svg>
                                 </span>
                                 <span class="me-3" style="color: #262222;">
-                                    <span  class="mobile_no_1">018657398576</span>, <span  class="mobile_no_2">018657398576</span>
+                                    <span  class="mobile_no_1">{{json_decode($settings['mobile_numbers'])[0]}}</span>, <span  class="mobile_no_2">{{json_decode($settings['mobile_numbers'])[0]}}</span>
                                 </span>
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -40,7 +42,10 @@
                                     </svg>
                                 </span>
                                 <span class="school_email">
-                                    demoschoolmail@gmail.com
+                                   {{json_decode($settings['emails'])[0]}}
+                                </span>,
+                                <span class="school_email">
+                                   {{json_decode($settings['emails'])[1]}}
                                 </span>
                             </p>
                             <p class="flex justify-end" style="color: #262222;">
@@ -175,100 +180,4 @@
 
 
 
-    @section('js')
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const nav_one = document.getElementById("nav_one");
-            const nav_two = document.getElementById("nav_two");
-            const responsive_nav = document.getElementById("responsive_nav");
-            const responsive_nav_two = document.getElementById("responsive_nav_two");
     
-            function isMobileView() {
-                return window.innerWidth <= 1365;
-            }
-    
-            function updateNavigation() {
-                if (isMobileView()) {
-                    nav_one.style.display = "none";
-                    nav_two.style.display = "none";
-                    responsive_nav.style.display = "block";
-                    responsive_nav_two.style.display = "none";
-                } else {
-                    nav_one.style.display = "block";
-                    nav_two.style.display = "none";
-                    responsive_nav.style.display = "none";
-                    responsive_nav_two.style.display = "none";
-                }
-            }
-            // Initial setup
-            updateNavigation();
-    
-            // Add a resize event listener to check for changes in screen width
-            window.addEventListener("resize", updateNavigation);
-    
-            // Reload the page and adapt navigation based on current screen size
-            window.addEventListener("load", updateNavigation);
-    
-            window.addEventListener("scroll", function() {
-                const scrollTop = window.scrollY;
-    
-                if (!isMobileView()) {
-                    if (scrollTop > 180) {
-                        nav_one.style.display = "none";
-                        nav_two.style.display = "block";
-                    }
-                    if (scrollTop === 0) {
-                        nav_one.style.display = "block";
-                        nav_two.style.display = "none";
-                    }
-                }
-                if (isMobileView()) {
-                    if (scrollTop > 0) {
-                        responsive_nav.style.display = "none";
-                        responsive_nav_two.style.display = "block";
-                    } else {
-                        responsive_nav.style.display = "block";
-                        responsive_nav_two.style.display = "none";
-                    }
-                }
-            });
-        });
-    </script>
-    
-    
-    {{-- Navbar js --}}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const localServerBaseUrl = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-            $.ajax({
-                url: localServerBaseUrl + '/api/settings',
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    const url = "{{ env('LOCAL_SERVER_BASE_URL') }}";
-                    const image_url = response.data[0].school_logo;
-                    $('.school_name').text(response.data[0].school_name);
-                    $('.EIIN_no').text(response.data[0].EIIN_no);
-                    $('.school_code').text(response.data[0].school_code);
-                    $('.college_code').text(response.data[0].college_code);
-                    const mobile_numbers = JSON.parse(response.data[0].mobile_numbers);
-                    const emails = JSON.parse(response.data[0].emails);
-                    $('.nav_school_logo').attr('src', `${url}/storage/${image_url}`);
-                    $('.school_email').text(emails[0]);
-                    if (mobile_numbers.length > 1) {
-                        $('.mobile_no_2').text(mobile_numbers[1]);
-                    } else {
-                        $('.mobile_no_1').text(mobile_numbers[0]);
-                    }
-                },
-                error: function(error) {
-                    // Handle errors
-                    console.error('Error:', error);
-                    // $('#result').text('Error occurred. Please check the console for details.');
-                }
-            });
-        })
-    </script>
-    @endsection

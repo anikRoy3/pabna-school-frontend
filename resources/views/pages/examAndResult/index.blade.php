@@ -5,7 +5,7 @@
             <div class="flex flex-col justify-center items-center" style="flex: 20%;">
                 <p>পরীক্ষার ফলাফল</p>
                 <div id="exam_name" style="width: 100%">
-                    <div class="flex items-center justify-center p-4 my-2 bg-[#0C1167] text-white w-full">
+                   {{--  <div class="flex items-center justify-center p-4 my-2 bg-[#0C1167] text-white w-full">
                         <span class="me-2">JSC</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                             <path
@@ -32,7 +32,7 @@
                                 d="M17.8817 13.2955L8.77183 22.4053C8.33247 22.8447 7.62016 22.8447 7.18084 22.4053L6.11833 21.3428C5.67972 20.9042 5.67887 20.1933 6.11645 19.7537L13.3362 12.5L6.11645 5.24628C5.67887 4.80664 5.67972 4.09578 6.11833 3.65717L7.18084 2.59466C7.6202 2.1553 8.33251 2.1553 8.77183 2.59466L17.8817 11.7045C18.321 12.1438 18.321 12.8561 17.8817 13.2955Z"
                                 fill="white" />
                         </svg>
-                    </div>
+                    </div> --}}
                 </div>
                 <small class="my-3 text-[#D00025]">
                     একাডেমিক পরীক্ষার ফলাফল এর জন্য স্টুডেন্ট প্রোফাইল লগইন করুন
@@ -121,7 +121,7 @@
                             </tr>
                         </thead>
                         <tbody id="table_body">
-                            <tr class="h-20 my-2">
+                            {{-- <tr class="h-20 my-2">
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">213</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">201</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">23</td>
@@ -176,7 +176,7 @@
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">223</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">12</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">12%</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

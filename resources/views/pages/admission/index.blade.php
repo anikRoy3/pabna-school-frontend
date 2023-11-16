@@ -6,7 +6,7 @@
 background: var(--white, #FFF); width:100%">
                 <p class="p-5 flex items-center justify-center bg-[#0C1167] text-white text-[1.3em]">ভর্তি সংক্রান্ত</p>
                 <div class="px-2" id="admissionTitleField">
-                    <p class="p-5 flex items-center my-2 text-[1.3em]"
+                   {{--  <p class="p-5 flex items-center my-2 text-[1.3em]"
                         style="background: var(--white, #FFF);
 box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);">
                         <span>
@@ -53,15 +53,15 @@ box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.25);">
                             </svg>
                         </span>
                         <small>ভর্তির ফলাফল</small>
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div style="flex:70%; width:100%;">
                 <p class="p-5 flex items-center justify-center bg-[#0C1167] text-white text-[1.3em] mb-1">ভর্তির ফলাফল</p>
                 <p id="admissionPdfField">
-                    <iframe src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
+                   {{--  <iframe src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
                         style="width: 100%;" height="500">
-                    </iframe>
+                    </iframe> --}}
                 </p>
             </div>
         </div>
