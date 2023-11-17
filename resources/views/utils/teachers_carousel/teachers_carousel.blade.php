@@ -8,8 +8,8 @@
             height: 400px">
             <img style="height: 230px;" src="{{$director['image_url']}}" alt="Shoes"
                 class="p-2 rounded-xl" />
-            <h2 class="">{{$director['name']}}</h2>
-            <small>{{$director['designation']}}</small>
+            <h2 class="text-[16px] font-semibold">{{$director['name']}}</h2>
+            <p class="w-full text-center">{{$director['designation']}}</p>
             {{-- <small>{{$director['lastDegree']}}</small> --}}
             <div class="flex justify-center w-full py-3">
                 <a href="{{ route('directors.id', ['id' => $director['id']]) }}"

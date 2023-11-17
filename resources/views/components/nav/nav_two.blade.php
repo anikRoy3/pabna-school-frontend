@@ -8,7 +8,7 @@
                         <path d="M27 0H-1.90735e-06L13.365 12.625L27 25V0Z" fill="#0C1167" />
                     </svg>
                     <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" class="w-[7em] h-[6em] rounded-md P-[1.688em] flex justify-center items-center bg-white">
-                        <img class="w-[5em] nav_school_logo" src="src/assests/nav_images/logo.png" alt="logo">
+                        <img class="w-[5em] nav_school_logo" src="{{env('LOCAL_SERVER_BASE_URL')}}/storage/{{$settings['school_logo']}}" alt="logo">
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 27 25" fill="none">
                         <path d="M0 0H27L13.635 12.625L0 25V0Z" fill="#0C1167" />
@@ -19,10 +19,10 @@
         <div class="flex">
             <nav class="w-full h-11 mt-2 transition duration-300 bg-white opacity-90 ease-in-out ">
                 <div class="flex w-[70.670em] items-center justify-between ">
-                    <p class="text-[1.2em] me-7 school_name">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা
+                    <p class="text-[1.2em] me-7 school_name">{{$settings['school_name']}}
                     </p>
                     <ul class="menu menu-horizontal px-1 flex space-x-4 w-auto">
-                        <li><a class="p-0" href="<?php echo 'http://localhost/pabna-school/'; ?>">হোম</a></li>
+                        <li><a class="p-0" href="{{url('/')}}">হোম</a></li>
                         <li class="dropdown">
                             <details>
                                 <summary id="menu1" class="p-0">
@@ -32,9 +32,9 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex={0} class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/aboutUs.php'; ?>"> আমাদের সম্পর্কে</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/contact.php'; ?>">যোগাযোগ ও ঠিকানা</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/teachersAndStaff.php'; ?>">শিক্ষক ও কর্মচারী</a></li>
+                                    <li><a href="{{url('aboutUs')}}">আমাদের সম্পর্কে</a></li>
+                                    <li><a href="{{url('contact')}}">যোগাযোগ ও ঠিকানা</a></li>
+                                    <li><a href="{{url('teachers')}}">শিক্ষক ও কর্মচারী</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -46,8 +46,9 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex={0} class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/education.php'; ?>">শিক্ষা</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/rules.php'; ?>">নিয়মকানুন</a></li>
+                                    <li><a href="{{url('academics')}}">শিক্ষা বর্ষপঞ্জি</a></li>
+                                    <li><a href="{{url('rules')}}">নিয়মকানুন</a></li>
+                                    <li><a href="{{url('examAndResult')}}">পরীক্ষা এবং ফলাফল</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -59,7 +60,10 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex={0} class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/examAndResult.php'; ?>">পরীক্ষা এবং ফলাফল</a></li>
+                                    <li><a href="{{url('clubAndSociety')}}">ক্লাব এবং সোসাইটি</a></li>
+                                    <li><a href="{{url('gamesAndSports')}}">গেমস এবং স্পোর্টস</a></li>
+                                    <li><a href="{{url('library')}}"> লাইব্রেরি</a></li>
+                                    <li><a href="{{url('multimedia')}}">মাল্টিমিডিয়া ক্লাস রুম</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -71,7 +75,7 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex={0} class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/admission.php'; ?>">ভর্তি সংক্রান্ত</a></li>
+                                    <li><a href="{{url('admission')}}">ভর্তি সংক্রান্ত</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -83,8 +87,7 @@
                                     </svg>
                                 </summary>
                                 <ul tabIndex={0} class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/clubAndSociety.php'; ?>">ক্লাব এবং সমাজ</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/program.php'; ?>">অনুষ্ঠান ও কর্মসূচি</a></li>
+                                    <li><a href="{{url('program')}}">অনুষ্ঠান ও কর্মসূচি</a></li>
                                 </ul>
                             </details>
                         </li>

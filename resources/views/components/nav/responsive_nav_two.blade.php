@@ -13,8 +13,8 @@
                 </svg>
             </label>
             <div>
-                <h3 class="text-[1.2em] school_name">পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা</h3>
-                <small>EIIN :  <span  class="EIIN_no">1058264444</span>  | কলেজ কোড: <span class="college_code">7925</span>  | স্কুল কোড: <span class="school_code">7801</span></small>
+                <h3 class="text-[1.2em] school_name">{{$settings['school_name']}}</h3>
+                <small>EIIN :  <span  class="EIIN_no">{{$settings['EIIN_no']}}</span>  | কলেজ কোড: <span class="college_code">{{$settings['college_code']}}</span>  | স্কুল কোড: <span class="school_code">{{$settings['school_code']}}</span></small>
             </div>
         </div>
         <div class="drawer">
@@ -25,7 +25,7 @@
             <div class="drawer-side ">
                 <label for="my-drawer2" class="drawer-overlay"></label>
                 <ul class="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
-                    <li class="my-3"><a class="text-[1.5em] submenu" href="<?php echo 'http://localhost/pabna-school/';?>" >হোম</a></li>
+                    <li class="my-3"><a class="text-[1.5em] submenu" href="{{url('/')}}" >হোম</a></li>
                     <li class="my-3" tabindex="0">
                         <details>
                             <summary id="menu1" class="text-[1.5em] submenu">
@@ -35,9 +35,9 @@
                                 </svg>
                             </summary>
                             <ul class="p-2 z-30">
-                            <li><a href="<?php echo 'http://localhost/pabna-school/aboutUs.php';?>"> আমাদের সম্পর্কে</a></li>
-                                <li><a href="<?php echo 'http://localhost/pabna-school/contact.php';?>">যোগাযোগ ও ঠিকানা</a></li>
-                                <li><a href="<?php echo 'http://localhost/pabna-school/teachersAndStaff.php';?>">শিক্ষক ও কর্মচারী</a></li>
+                                <li><a href="{{url('aboutUs')}}">আমাদের সম্পর্কে</a></li>
+                                <li><a href="{{url('contact')}}">যোগাযোগ ও ঠিকানা</a></li>
+                                <li><a href="{{url('teachers')}}">শিক্ষক ও কর্মচারী</a></li>
                             </ul>
                         </details>
                     </li>
@@ -49,8 +49,9 @@
                                 </svg>
                             </summary>
                             <ul class="p-2 z-30">
-                            <li><a href="<?php echo 'http://localhost/pabna-school/education.php';?>">শিক্ষা</a></li>
-                                <li><a href="<?php echo 'http://localhost/pabna-school/rules.php';?>">নিয়মকানুন</a></li>
+                                <li><a href="{{url('academics')}}">শিক্ষা বর্ষপঞ্জি</a></li>
+                                <li><a href="{{url('rules')}}">নিয়মকানুন</a></li>
+                                <li><a href="{{url('examAndResult')}}">পরীক্ষা এবং ফলাফল</a></li>
                             </ul>
                         </details>
                     </li>
@@ -62,7 +63,10 @@
                                 </svg>
                             </summary>
                             <ul class="p- z-30">
-                            <li><a href="<?php echo 'http://localhost/pabna-school/examAndResult.php';?>">পরীক্ষা এবং ফলাফল</a></li>
+                            <<li><a href="{{url('clubAndSociety')}}">ক্লাব এবং সোসাইটি</a></li>
+                            <li><a href="{{url('gamesAndSports')}}">গেমস এবং স্পোর্টস</a></li>
+                            <li><a href="{{url('library')}}"> লাইব্রেরি</a></li>
+                            <li><a href="{{url('multimedia')}}">মাল্টিমিডিয়া ক্লাস রুম</a></li>
                             </ul>
                         </details>
                     </li>
@@ -74,7 +78,7 @@
                                 </svg>
                             </summary>
                             <ul class="p-2 z-30">
-                            <li><a href="<?php echo 'http://localhost/pabna-school/admission.php';?>">ভর্তি সংক্রান্ত</a></li>    
+                                <li><a href="{{url('admission')}}">ভর্তি সংক্রান্ত</a></li> 
                             </ul>
                         </details>
                     </li>
@@ -86,8 +90,7 @@
                                 </svg>
                             </summary>
                             <ul class="p-2 z-30">
-                            <li><a href="<?php echo 'http://localhost/pabna-school/clubAndSociety.php';?>">ক্লাব এবং সমাজ</a></li>
-                                <li><a href="<?php echo 'http://localhost/pabna-school/program.php';?>">অনুষ্ঠান ও কর্মসূচি</a></li>
+                                <li><a href="{{url('program')}}">অনুষ্ঠান ও কর্মসূচি</a></li>
                             </ul>
                         </details>
                     </li>
