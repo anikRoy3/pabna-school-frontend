@@ -33,7 +33,7 @@
                                     </svg>
                                 </span>
                                 <span class="me-3" style="color: #262222;">
-                                    <span  class="mobile_no_1">{{json_decode($settings['mobile_numbers'])[0]}}</span>, <span  class="mobile_no_2">{{json_decode($settings['mobile_numbers'])[0]}}</span>
+                                    <span  class="mobile_no_1">{{json_decode($settings['mobile_numbers'])[0]}}</span>, <span  class="mobile_no_2">{{json_decode($settings['mobile_numbers'])[1]}}</span>
                                 </span>
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -43,9 +43,6 @@
                                 </span>
                                 <span class="school_email">
                                    {{json_decode($settings['emails'])[0]}}
-                                </span>,
-                                <span class="school_email">
-                                   {{json_decode($settings['emails'])[1]}}
                                 </span>
                             </p>
                             <p class="flex justify-end" style="color: #262222;">
@@ -126,7 +123,7 @@
                                 </summary>
                                 <ul tabIndex="0" class="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><a href="{{url('academics')}}">শিক্ষা বর্ষপঞ্জি</a></li>
-                                    <li><a href="<?php echo 'http://localhost/pabna-school/rules.php'; ?>">নিয়মকানুন</a></li>
+                                    <li><a href="{{url('rules')}}">নিয়মকানুন</a></li>
                                     <li><a href="{{url('examAndResult')}}">পরীক্ষা এবং ফলাফল</a></li>
                                  
                                 </ul>

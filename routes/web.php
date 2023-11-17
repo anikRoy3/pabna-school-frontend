@@ -26,6 +26,10 @@ Route::get('/', function () {
         'Accept' => 'application/json',
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
 
+    $directors = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/directors')->json()['data'];
+
     $notices = Http::withHeaders([
         'Accept' => 'application/json',
     ])->get($baseUrl . '/api/notices?order=desc')->json()['data'];
@@ -67,7 +71,8 @@ Route::get('/', function () {
         'notices',
         'topNotices',
         'achievementImages',
-        'teachers'
+        'teachers',
+        'directors'
 
     ));
 });
@@ -152,6 +157,7 @@ Route::get('/examAndResult', function () {
     return view('pages.examAndResult.index', compact('settings'));
 });
 
+
 Route::get('/clubAndSociety', function () {
     $baseUrl = env('LOCAL_SERVER_BASE_URL');
 
@@ -160,6 +166,8 @@ Route::get('/clubAndSociety', function () {
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
     return view('pages.clubAndSociety.index', compact('settings'));
 });
+
+
 Route::get('/gamesAndSports', function () {
     $baseUrl = env('LOCAL_SERVER_BASE_URL');
 
@@ -168,6 +176,9 @@ Route::get('/gamesAndSports', function () {
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
     return view('pages.gamesAndSports.index', compact('settings'));
 });
+
+
+
 Route::get('/library', function () {
     $baseUrl = env('LOCAL_SERVER_BASE_URL');
 
@@ -176,6 +187,8 @@ Route::get('/library', function () {
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
     return view('pages.libraries.index', compact('settings'));
 });
+
+
 Route::get('/multimedia', function () {
     $baseUrl = env('LOCAL_SERVER_BASE_URL');
 
@@ -184,6 +197,8 @@ Route::get('/multimedia', function () {
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
     return view('pages.multimedia.index', compact('settings'));
 });
+
+
 Route::get('/program', function () {
     $baseUrl = env('LOCAL_SERVER_BASE_URL');
 
@@ -192,3 +207,42 @@ Route::get('/program', function () {
     ])->get($baseUrl . '/api/settings')->json()['data'][0];
     return view('pages.program.index', compact('settings'));
 });
+
+
+Route::get('/rules', function () {
+    $baseUrl = env('LOCAL_SERVER_BASE_URL');
+
+    $settings = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/settings')->json()['data'][0];
+
+    $rules = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/rules')->json()['data'][0];
+
+
+    return view('pages.rules.index', compact('settings', 'rules'));
+});
+
+
+
+Route::get('directors/{id}', function ($id) {
+
+    $baseUrl = env('LOCAL_SERVER_BASE_URL');
+
+    $settings = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/settings')->json()['data'][0];
+
+    $directors = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/directors')->json()['data'];
+
+    $teachers = Http::withHeaders([
+        'Accept' => 'application/json',
+    ])->get($baseUrl . '/api/teachers')->json()['data'];
+
+    $director = collect($directors)->firstWhere('id', $id);
+
+    return view('pages.directorsTalk.index', compact('director', 'settings', 'teachers', 'directors'));
+})->name('directors.id');

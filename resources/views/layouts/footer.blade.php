@@ -850,6 +850,57 @@
 
     })
 </script>
+
+
+
+{{-- FAQ ajax reequest --}}
+
+
+<script>
+   $(document).ready(function() {
+    $('#faqForm').submit(function(event) {
+        event.preventDefault();
+
+        // Collect form data
+        const formData = $(this).serialize();
+
+        // Make AJAX request
+        $.ajax({
+            url: localServerBaseUrl + '/api/faqs',
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                if (response.message) {
+                    console.log(response);
+                    $('#s_e_d').css('display', 'block');
+                    $('#error_msg').css('display', 'none');
+                    $('#success_msg').css('display', 'Thank you for your feedback.');
+                    $('#success_msg').text(response.message);
+                }
+                // Handle success response here
+            },
+            error: function(error) {
+                // Handle errors
+                const errorMessage = JSON.parse(error.responseText).error;
+                $('#success_msg').css('display', 'none');
+                $('#s_e_d').css('display', 'block');
+                if (errorMessage) {
+                    console.log(errorMessage);
+                    $('#error_msg').css('display', 'block');
+                    $('#error_msg').text(errorMessage.split(' ').slice(0, 5).join(' '));
+                }
+                console.log('Error:', errorMessage.split(' ').slice(0, 5).join(' '));
+                // Handle error response here
+            }
+        });
+
+        setTimeout(() => {
+            $('#s_e_d').css('display', 'none');
+        }, 10000);
+    });
+});
+</script>
 </body>
 
 </html>
