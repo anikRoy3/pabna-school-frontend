@@ -6,25 +6,25 @@
             </div>
             <div class="flex-1">
                 <h3 class="text-[1em] md:text-[1.5em] mb-2">
-                    পাবনা ক্যাডেট কলেজিয়েট স্কুল, পাবনা
+                    {{$settings['school_name']}}
                 </h3>
-                <p class="mt-1">পাবনা সেনানিবাস ৩৫০১, পাবনা</p>
+                <p class="mt-1">{{$settings['address']}}</p>
                 <p class="mt-1">
-                    <span>০১৭৯৪৬২৫৩৭৬৫</span>
-                    <span>০১৭৯৪৬২৫৩৭৬৫</span>
+                    <span>{{json_decode($settings['mobile_numbers'])[0]}},</span>
+                    <span>{{json_decode($settings['mobile_numbers'])[1]}}</span>
                 </p>
                 <p class="mt-1">
-                    <span>ipsccml@gmail.com,</span>
-                    <span>ipsccml@gmail.com</span>
+                    <span>{{json_decode($settings['emails'])[0]}},</span>
+                    <span>{{json_decode($settings['emails'])[1]}}</span>
                 </p>
             </div>
         </section>
         <section class="flex flex-col text-center md:text-left mb-4 md:mb-0">
             <button class="w-[8.563em] md:w-auto py-2 text-white mb-3 md:mb-0" style="border-radius: 29px; background: var(--blue-1, #0C1167);">সেবাসমূহ</button>
-            <p class=" hover:underline mt-5">ভর্তি বিজ্ঞপ্তি</p>
-            <p class=" hover:underline">ফলাফল</p>
-            <p class=" hover:underline">অনলাইন ভর্তি</p>
-            <p class=" hover:underline">ফি প্রদান</p>
+            <a href="{{url('admission')}}" class=" hover:underline mt-5" >ভর্তি বিজ্ঞপ্তি</a>
+            <a href="{{url('examAndResults')}}" class=" hover:underline">ফলাফল</a>
+            <a href="{{url('admission')}}" class=" hover:underline">অনলাইন ভর্তি</a>
+            <a href="{{url('admission')}}" class=" hover:underline">ফি প্রদান</a>
         </section>
         <section class="text-center md:text-left">
             <div class="mb-2">ভিজিটর কাউন্টার</div>
