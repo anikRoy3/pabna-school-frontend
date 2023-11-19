@@ -8,7 +8,7 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 p-2 ">
-            <a href="<?php echo 'http://localhost/pabna-school/';?>">
+            <a href="{{url('/')}}">
                 <div>
                     <img  class="w-[3.4em] nav_school_logo" src="{{env('LOCAL_SERVER_BASE_URL')}}/storage/{{$settings['school_logo']}}" alt="logo">
                 </div>

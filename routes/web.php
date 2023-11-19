@@ -62,7 +62,7 @@ Route::get('/', function () {
         if (count($achievementImages) > 3) {
             break;
         }
-    }
+    } 
 
     return view('pages.homePage.index', compact(
         'settings',

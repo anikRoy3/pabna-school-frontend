@@ -35,14 +35,14 @@
     <div class="flex lg:flex-row flex-col gap-3"
         style="flex:40%; border-radius: 5px; border: 1px solid #F1F1F1; background: var(--white, #FFF); box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);">
         <div class="flex flex-col justify-center items-center sm:w-full md:w-1/2 lg:w-1/2">
-            <img src="src/assests/amader_arjon_images/image2.png" alt="" class="w-1/2">
+            <img src="assets/country_related_image/image1.png" alt="" class="w-1/2">
             <p class="text-[1.2em] mt-4 text-center">
                 “শিক্ষা নিয়ে গড়ব দেশ<br>
                 শেখ হাসিনার বাংলাদেশ”
             </p>
         </div>
         <div class="flex flex-col justify-center items-center sm:w-full md:w-1/2 lg:w-1/2">
-            <img src="src/assests/amader_arjon_images/image1.png" alt="" class="w-1/2">
+            <img src="assets/country_related_image/image2.png" alt="" class="w-1/2">
             <p class="text-[1.2em] mt-4 text-center">
                 “শিক্ষা নিয়ে গড়ব দেশ<br>
                 শেখ হাসিনার বাংলাদেশ”

@@ -1,7 +1,7 @@
 
 <header id="nav_two" class=" container mx-auto sticky top-0 z-40 bg-white h-[3.875em]" style="display: none; transition: opacity 2s ease;">
     <nav class="flex">
-        <a href="<?php echo 'http://localhost/pabna-school/'?>">
+        <a href="{{url('/')}}">
             <section class="flex items-center">
                 <div class=" z-40 flex ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 27 25" fill="none">
